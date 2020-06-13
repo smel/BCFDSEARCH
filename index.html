@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<h2>BCFD SEARCH</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="#">$name (Compatible with all except member leave and member ban) - This mentions the user who sent the message. NOTE: If you use it in the channel send part of an event where the user leaves you will receive an invalid user mention.</a></li>
+
+<li><a href="#">$channel (Compatible with Message Received) - Adds the channel name to the message.</a></li>
+
+<li><a href="#">$server (Not compatible with Private Message Received) - Adds the server name to the message</a></li>
+
+<li><a href="#">$message (Compatible with Message Received and Private Message Received) - This adds the message content of the message sent.</a></li>
+
+<li><a href="#">$rollnum(min,max) (Compatible with all) - This generates a random number where you replace min with the smallest number and max with the largest one. For example, if you made a dice command that uses $rollnum(1,6) it would show replace where you put the $rollnum(1,6) with the result. If your command was to reply with "$rollnum(1,6) is the roll of your dice." it would appear as below.
+
+
+But if you made a mistake in your command and put in a number larger than the max in the min spot like "$rollnum(55,12)" You could get an error that appears like so.</a></li>
+
+
+<li><a href="#">$date (Compatible with all) - The current date.</a></li>
+
+<li><a href="#">$avatar (Compatible with all except member leave and member ban) - The current avatar of the user who called the command.</a></li>
+
+<li><a href="#">$defaultAvatar (Compatible with all except member leave and member ban) - The default avatar of the user.</a></li>
+
+<li><a href="#">$memberCount (Not compatible with pm recieved) - Gives the number of members currently in the server.</a></li>
+
+<li><a href="#">$serverCreateTime (Not compatible with pm recieved) - Gives the time the server was created.</a></li>
+
+<li><a href="#">$messageAfterCommand (Compatible with Message Received and Private Message Received) - gives all raw message content after command.</a></li>
+
+<li><a href="#">$commandCount - gives the number of commands bot has.</a></li>
+
+<li><a href="#">$namePlain - name of user who called command without mention.</a></li>
+
+<li><a href="#">$serverIcon (Not compatible with pm recieved) - icon of the server</a></li>
+
+<li><a href="#">$serverBanner (Not compatible with pm recieved) - banner of the server, if it exists</a></li>
+
+<li><a href="#">$serverDescription (Not compatible with pm recieved) - description of the server, if it exists</a></li>
+
+<li><a href="#">$serverSplash (Not compatible with pm recieved) - splash of the server, if it exists</a></li>
+
+<li><a href="#">$botAvatar - avatar of the bot</a></li>
+
+<li><a href="#">$botName - name of the bot</a></li>
+
+<li><a href="#">$mentionedAvatar (Only message recieved) - avatar of mentioned user</a></li>
+
+<li><a href="#">$mentionedName (Only message recieved) - name of mentioned user in a mention</a></li>
+
+<li><a href="#">$mentionedNamePlain (Only message recieved) - name of a mentioned user in plain format</a></li>
+
+<li><a href="#">$random{} - Used to select a random message or link for embed images. Used like $random{abc|def|ghi} where | is the seperator between choices to be picked.</a></li>
+
+<li><a href="#">$discriminator - discriminator of command caller</a></li>
+
+<li><a href="#">$tag - tag of command caller</a></li>
+
+<li><a href="#">$timeCreated - account creation time of command caller</a></li>
+
+<li><a href="#">$ID - id of command caller</a></li>
+
+<li><a href="#">$serversSharedWithBot - number of servers shared with command caller</a></li>
+
+<li><a href="#">$channelID (Only message recieved or react add) - id of channel where message is</a></li>
+
+<li><a href="#">$channelCreateDate (Only message recieved or react add) - date of the creation of the channel</a></li>
+
+<li><a href="#">$channelAsMention (Only message recieved or react add) - mention of channel</a></li>
+
+<li><a href="#">$botDiscriminator - discriminator of the bot</a></li>
+
+<li><a href="#">$botTag - tag of bot</a></li>
+
+<li><a href="#">$botDefaultAvatar - default avatar of bot</a></li>
+
+<li><a href="#">$botTimeCreated - creation time of bot</a></li>
+
+<li><a href="#">$botID - id of bot</a></li>
+
+<li><a href="#">$ping - ping to gateway</a></li>
+
+<li><a href="#">$inviteURL - url to invite the bot</a></li>
+
+<li><a href="#">$serverCount - amount of servers bot is in</a></li>
+
+<li><a href="#">$allMemberCount - amount of users in all the bot is in</a></li>
+
+<li><a href="#">$mentionedDiscriminator (Only message recieved) - discriminator of mentioned user</a></li>
+
+<li><a href="#">$mentionedTag (Only message recieved) - tag of mentioned user</a></li>
+
+<li><a href="#">$mentionedIsBot (Only message recieved) - is the mentioned user a bot?</a></li>
+
+<li><a href="#">$mentionedDefaultAvatar (Only message recieved) - default avatar of mentioned user</a></li>
+
+<li><a href="#">$mentionedTimeCreated (Only message recieved) - account creation date of mentioned user</a></li>
+
+<li><a href="#">$mentionedID (Only message recieved) - id of mentioned user</a></li>
+
+<li><a href="#">$mentionedServersSharedWithBot (Only message recieved) - how many servers the mentioned user shares with the bot.</a></li>
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
